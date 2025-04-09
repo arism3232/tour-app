@@ -47,3 +47,5 @@ function Gallery({ tours, setTours, removeTour }) {
   );
 }
 export default Gallery;
+
+// Loading and Error States already displayed while initially doing Tour List Component using Copilot
