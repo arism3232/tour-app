@@ -6,24 +6,24 @@ function Gallery({ tours, setTours, removeTour }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchTours = async () => {
-      try {
         setLoading(true);
-        const response = await fetch("https://api.allorigins.win/raw?url=https://course-api.com/react-tours-project");
+        fetch("https://course-api.com/react-tours-project")
+      .then((response) => {
         if (!response.ok) {
-          throw new Error("Failed to fetch tours");   
+          throw new Error("Failed to fetch tours");
         }
-        const data = await response.json();
+        return response.json();
+      })
+      .then((data) => {
         setTours(data);
-      } catch (error) {
-        setError(error.message);
-      } finally {
         setLoading(false);
-      }
-    };
-
-    fetchTours();
-  }, [setTours]);
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+        setError(error.message);
+        setLoading(false);
+      });
+  }, []);
 
   if (loading) {
     return <div className="loading">Loading...</div>;
