@@ -41,7 +41,7 @@ function Gallery({ tours, setTours, removeTour }) {
         <TourCard 
         key={tour.id} 
         {...tour} 
-        removeTour={removeTour} />
+        onRemove={removeTour} />
       ))}
     </div>
   );
