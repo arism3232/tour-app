@@ -7,7 +7,7 @@ function Gallery({ tours, setTours, removeTour }) {
 
   useEffect(() => {
         setLoading(true);
-        fetch("https://cors-anywhere.herokuapp.com/https://course-api.com/react-tours-project")
+        fetch("/api/react-tours-project") // using the proxy path
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch tours");
