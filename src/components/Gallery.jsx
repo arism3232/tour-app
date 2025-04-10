@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import TourCard from "./TourCard";
 
 function Gallery({ tours, setTours, removeTour }) {
@@ -7,7 +7,7 @@ function Gallery({ tours, setTours, removeTour }) {
 
   useEffect(() => {
         setLoading(true);
-        fetch("https://course-api.com/react-tours-project")
+        fetch("https://cors-anywhere.herokuapp.com/https://course-api.com/react-tours-project")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch tours");
