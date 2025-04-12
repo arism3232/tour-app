@@ -3,7 +3,11 @@ import { useState } from "react";
 function TourCard({ id, name, info, image, price, onRemove }) { // defining TourCard component
     const [showFullInfo, setShowFullInfo] = useState(false); // setting track for full info which is initially false
 
-    const displayedInfo = showFullInfo ? info : `${info.substring(0, 200)}...`; // determining what info to display and limiting length if showFullInfo is false
+    const displayedInfo = info // displaying info based on showFullInfo state
+    ? showFullInfo 
+    ? info 
+    : `${info.substring(0, 200)}...`
+    : "No description available."; // fallback message incase info is not available
 
     return (
         <div className="tour-card">
